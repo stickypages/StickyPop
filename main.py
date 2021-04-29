@@ -1,16 +1,23 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from StickyBrowser import StickyBrowser
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+params = {
+    'use_proxy': True,
+    'proxy': {
+        'http': 'http://ijpzpyhy-rotate:k9jutry0lqcc@p.webshare.io:80',
+        'https': 'http://ijpzpyhy-rotate:k9jutry0lqcc@p.webshare.io:80'
+    },
+}
+url = 'https://www.castanet.net/edition/news-story--11-.htm'
+
+for x in range(5000):
+    print(f'Voting {x} of 5000')
+    browser = StickyBrowser(True, params)
+    page = browser.get(url)
+    page.find("input[type='radio'][value='2']").click()
+    page.find("input[type='button'][value='Vote']").click()
+    page.wait(1.75)
+    browser.quit()
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print('Done')
